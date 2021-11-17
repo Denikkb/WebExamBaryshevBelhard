@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <!-- <head>
+         <title>Getting Started: Serving Web Content</title>
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+     </head>-->
+ <body>
+
+ <!--вставка с bootstrapp-->
+
+<header
+        th:insert="blocks/header::header">
+</header>
+
+ <!--<p th:text="'Привет, проверяющий, вы находитесь на ' + ${title} + '!'" />-->
+
+<div class="container px-4 py-5" id="custom-cards">
+
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col" >
+            <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                <div  class="text-shadow-1 align-self-start">
+                    <h2 class="fw-bold text-center">People</h2>
+                    <ul class="align-items-stretch">
+                        <li>
+                        <a href ="people" class="me-auto">
+                            <img src=" https://sun9-47.userapi.com/impf/c834104/v834104970/d8416/sd6Asvx8ab4.jpg?size=807x504&quality=96&sign=0f3ab9c1cacff5b7da158e8fa955b62d&type=album" alt="Bootstrap" width="280" height="160" class="rounded-circle border border-white text-center">
+                        </a>
+                            <form action="/people">
+                                <button>Show All People</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-2.jpg');">
+                <div class="d-flex flex-column h-100 p-8 pb-3 text-white text-shadow-1">
+                    <h2 class="fw-bold text-center">Products</h2>
+                    <ul class="align-items-stretch">
+                        <li>
+                            <a href ="/products" class="me-auto">
+                            <img src="https://creativestroy.com/wp-content/uploads/2020/12/tools-2.jpg" alt="Bootstrap" width="280" height="180" class="rounded-circle border border-white">
+                            </a>
+                                <form action="/products">
+                                    <button>Show All Products</button>
+                                </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col" >
+            <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('unsplash-photo-3.jpg');">
+                <div class="d-flex flex-column h-100 p-8 pb-3 text-shadow-1">
+                    <h2 class="fw-bold text-center">Orders</h2>
+                    <ul class="align-items-stretch">
+                        <li class="me-auto" >
+                            <a href ="/orders" class="me-auto">
+                            <img src="https://thumbs.dreamstime.com/z/%D1%87%D0%B5%D0%BB…D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D0%B5-123188606.jpg" alt="Bootstrap" width="200" height="180" class="rounded-circle border border-white">
+                            </a>
+                                <form action="/orders">
+                                    <button>Show All Orders</button>
+                                </form>
+
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+
+
+
+</body>
+</html>
+

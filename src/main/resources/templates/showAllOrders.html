@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders with people and product</title>
+
+</head>
+
+</body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<h1>Hello, It is  order list</h1>
+<h2>Click First name or Last name if you have to see peoples orders</h2>
+<a>
+</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+
+            <th>PersonId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>NameProduct</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>OrderId</th>
+            <th>Email</th>
+
+        </tr>
+        <tr th:each ="orders : ${orders}" >
+
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${orders.getPerson.getPersonId()})}" th:utext="${orders.getPerson.getPersonId}">...></a></td>
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${orders.getPerson.getPersonId()})}" th:utext="${orders.getPerson.getFirstName}">...></a></td>
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${orders.getPerson.getPersonId()})}" th:utext="${orders.getPerson.getLastName}">...></a></td>
+            <td scope="row"><a th:utext="${orders.getProducts().getNameProduct}">...></a></td>
+            <td scope="row"><a th:utext="${orders.getProducts().getPrice}">...></a></td>
+            <td scope="row"><a th:utext="${orders.getProducts().getQuantity}">...></a></td>
+            <td scope="row"><a th:utext="${orders.getId}">...></a></td>
+            <td scope="row"><a th:utext="${orders.getEmail}">...></a></td>
+
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+</ul>
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+</body>
+</html>

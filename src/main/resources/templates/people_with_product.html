@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>people_with_product</title>
+</head>
+
+</body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<h1>Hello, It is your product list</h1>
+<a>
+</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+            <th>PersonId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>NameProduct</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+          <tr th:each ="person : ${person}" >
+
+              <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getPersonId}">...></a></td>
+              <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getFirstName}">...></a></td>
+              <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getLastName}">...></a></td>
+               <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getProducts().getNameProduct}">...></a></td>
+              <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getProducts().getPrice}">...></a></td>
+               <td scope="row"><a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" th:utext="${person.getProducts().getQuantity}">...></a></td>
+
+           </tr>
+    </table>
+  </div>
+
+
+
+
+
+
+
+
+</ul>
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>newPerson</title>
+
+</head>
+<body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<h1>Create a Product:</h1>
+
+
+
+<form th:method="POST" th:action="@{/save_product}" th:object="${product}">
+
+
+
+    <label for="NameProduct">NameProduct</label>
+    <input type="text" th:field="*{NameProduct}"  id="NameProduct"/>
+    <div style="color:red" th:if="${#fields.hasErrors('nameProduct')}" th:errors="*{nameProduct}">NameProduct Error</div>
+
+    <label for="Price">Price</label>
+    <input type="text" th:field="*{Price}"  id="Price"/>
+    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price Error</div>
+
+    <label for="Quantity">Quantity</label>
+    <input type="text" th:field="*{Quantity}"  id="Quantity"/>
+    <div style="color:red" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">quantity Error</div>
+
+    <input type="submit" value="Add Product"/>
+
+
+</form>
+
+
+
+</body>
+</html>
+</html>

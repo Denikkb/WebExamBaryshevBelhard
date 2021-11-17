@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>showAllPersons</title>
+
+
+</head>
+</body>
+
+<header
+        th:insert="blocks/header::header">
+
+</header>
+
+    <h1>Hello, I show you all persons</h1>
+    <a href="/people/new">Add Person</a>
+    <br/><br/>
+    <div>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr th:each ="person1 : ${people1}" >
+
+                <td scope="row"><a th:href="@{/people/{id}(id=${person1.getPersonId()})}" th:utext="${person1.getPersonId}">...></a></td>
+                <td scope="row"><a th:href="@{/people/{id}(id=${person1.getPersonId()})}" th:utext="${person1.getFirstName}">...></a></td>
+                <td scope="row"><a th:href="@{/people/{id}(id=${person1.getPersonId()})}" th:utext="${person1.getLastName}">...></a></td>
+
+            </tr>
+        </table>
+    </div>
+
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+        <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            <div  class="text-shadow-1 align-self-start">
+                <h2 class="fw-bold text-center">Do you want to add me? Click the red man)</h2>
+                <ul class="align-items-stretch">
+                    <li>
+                        <a href="/people/new">Add Person
+                            <img src=" https://avatarko.ru/img/kartinka/4/chelovechek_3415.jpg" alt="Bootstrap" width="550" height="410" class="rounded-circle border border-white text-center">
+                        </a>
+                        <!--<form >
+                            <a href="@{/people/new}">
+                            <input type="submit" value="Add Person"/>
+                            </a>
+                        </form> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+</body>
+</html>

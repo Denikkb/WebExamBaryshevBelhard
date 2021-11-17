@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>newPerson</title>
+
+</head>
+<body>
+
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<h1>Create a Person:</h1>
+
+
+
+<form th:method="POST" th:action="@{/}" th:object="${person2}">
+
+
+
+    <!--<label for="personId">PersonId</label>
+   <input type="text" th:field="*{PersonId}"  id="PersonId"/> -->
+
+
+   <label for="firstName">First name</label>
+   <input type="text" th:field="*{FirstName}"  id="FirstName"/>
+   <div style="color:red" th:if="${#fields.hasErrors('FirstName')}" th:errors="*{FirstName}">PersonId Error</div>
+
+   <label for="lastName">Last name</label>
+   <input type="text" th:field="*{LastName}"  id="LastName"/>
+   <div style="color:red" th:if="${#fields.hasErrors('LastName')}" th:errors="*{LastName}">PersonId Error</div>
+
+   <input type="submit" value="Add Person"/>
+
+
+</form>
+
+
+
+</body>
+</html>

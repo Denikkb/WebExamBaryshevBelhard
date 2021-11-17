@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders with people and product</title>
+</head>
+
+</body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<h1>Hello, It is  order list</h1>
+
+<a>
+</a>
+<br/><br/>
+<div>
+    <table border="1">
+        <tr>
+
+            <th>PersonId</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>NameProduct</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>OrderId</th>
+            <th>Email</th>
+
+        </tr>
+        <tr th:each ="order : ${order}" >
+
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getPerson.getPersonId}">...></a></td>
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getPerson.getFirstName}">...></a></td>
+            <td scope="row"><a th:href="@{/order/{id}/getAllOrdersWithPeopleAndProductsById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getPerson.getLastName}">...></a></td>
+            <td scope="row"><a th:href="@{/people/{id}/peopleWithProductById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getProducts().getNameProduct}">...></a></td>
+            <td scope="row"><a th:href="@{/people/{id}/peopleWithProductById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getProducts().getPrice}">...></a></td>
+            <td scope="row"><a th:href="@{/people/{id}/peopleWithProductById(id=${order.getPerson.getPersonId()})}" th:utext="${order.getProducts().getQuantity}">...></a></td>
+            <td scope="row"><a th:href="@{/people/{id}/peopleWithProductById(id=${order.getId()})}" th:utext="${order.getId}">...></a></td>
+            <td scope="row"><a th:href="@{/people/{id}/peopleWithProductById(id=${order.getEmail()})}" th:utext="${order.getEmail}">...></a></td>
+
+        </tr>
+     </table>
+ </div>
+
+
+
+
+
+
+
+
+ </ul>
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+ </body>
+ </html>

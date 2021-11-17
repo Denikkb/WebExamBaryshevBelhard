@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>showPerson</title>
+</head>
+<body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<table border="2" rules="cols">
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+
+    <td th:utext="${person.getPersonId}">...</td>
+    <td th:utext="${person.getFirstName}">...</td>
+    <td th:utext="${person.getLastName}">...</td>
+
+</table>
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+        <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            <div  class="text-shadow-1 align-self-start">
+                <h2 class="fw-bold text-center">People</h2>
+
+                <ul class="align-items-stretch">
+                    <li>
+                        <a th:href="@{/people/{id}/edit(id=${person.getPersonId()})}" class="me-auto">
+                            <img src=" 	https://avatarko.ru/img/kartinka/5/chelovechek_4156.jpg" alt="Bootstrap" width="320" height="320" class="rounded-circle border border-white text-center">
+                        </a>
+                        <form th:action="@{/people/{id}/edit(id=${person.getPersonId()})}">
+                            <button>Edit person</button>
+                        </form>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                <div  class="text-shadow-1 align-self-start">
+                    <h2 class="fw-bold text-center">If you need to kill me, please press 'delete'</h2>
+                    <ul class="align-items-stretch">
+                        <li>
+                            <a th:href="@{/people/{id} (id=${person.getPersonId()})}" class="me-auto">
+                                <img src=" https://avatarko.ru/img/kartinka/5/chelovechek_4175.jpg" alt="Bootstrap" width="320" height="320" class="rounded-circle border border-white text-center">
+                            </a>
+
+
+                            <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getPersonId()})}">
+                                <input type="submit" value="Delete"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+        <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            <div  class="text-shadow-1 align-self-start">
+                <h2 class="fw-bold text-center">Would you like to check - what products did you bye</h2>
+
+                <ul class="align-items-stretch">
+                    <li>
+                        <a th:href="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}" class="me-auto">
+                            <img src=" 	https://avatarko.ru/img/kartinka/5/chelovechek_4180.jpg" alt="Bootstrap" width="320" height="315" class="rounded-circle border border-white text-center">
+                        </a>
+                        <form th:action="@{/people/{id}/peopleWithProduct(id=${person.getPersonId()})}">
+                            <button>Show people with product</button>
+                        </form>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+</body>
+</html>

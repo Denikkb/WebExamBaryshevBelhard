@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>showProduct</title>
+</head>
+<body>
+<header
+        th:insert="blocks/header::header">
+</header>
+
+<div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+        <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+            <div  class="text-shadow-1 align-self-start">
+                <h2 class="fw-bold text-center">Product</h2>
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                    </tr>
+
+                    <td  th:utext="${product.getId}">...></a></td>
+                    <td  th:utext="${product.getNameProduct}">...></a></td>
+                    <td  th:utext="${product.getPrice}">...></a></td>
+                    <td  th:utext="${product.getQuantity}">...></a></td>
+
+
+                </table>
+                <ul class="align-items-stretch">
+                    <li>
+                        <a th:href="@{/product/{id}/updateProduct(id=${product.getId()})}" class="me-auto">
+                            <img src=" 	https://avatarko.ru/img/kartinka/1/chelovechek_stroitel.jpg" alt="Bootstrap" width="320" height="320" class="rounded-circle border border-white text-center">
+                        </a>
+                        <form th:action="@{/product/{id}/updateProduct(id=${product.getId()})}">
+                            <button>Edit product</button>
+                        </form>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+        <div class="col">
+            <div class="overflow-hidden text-white bg-dark rounded-5 shadow-lg">
+                <div  class="text-shadow-1 align-self-start">
+                    <h2 class="fw-bold text-center">If you need to kill me, please press 'delete'</h2>
+                    <ul class="align-items-stretch">
+                        <li>
+                            <a th:href="@{/product/{id} (id=${product.getId()})}" class="me-auto">
+                                <img src=" https://avatarko.ru/img/kartinka/1/chelovechek_stroitel.jpg" alt="Bootstrap" width="320" height="320" class="rounded-circle border border-white text-center">
+                            </a>
+
+
+                            <form th:method="DELETE" th:action="@{/product/{id}(id=${product.getId()})}">
+                                <input type="submit" value="Delete"/>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div
+        th:insert="blocks/footer::footer">
+</div>
+
+</body>
+</html>
